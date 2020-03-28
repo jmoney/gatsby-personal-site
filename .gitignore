@@ -66,3 +66,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+#### HACK FOR PUBLISHING SITE VIA GH-PAGES
+public/CNAME

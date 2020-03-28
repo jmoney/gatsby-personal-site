@@ -40,7 +40,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "gh-pages": "cp CNAME public/ && git diff-index --quiet HEAD -- public || gh-pages -d public -b master -r git@github.com:jmoney8080/jmoney8080.github.com.git"
+    "gh-pages": "cp CNAME public/ && git diff-index --quiet HEAD -- public || gh-pages -d public -b master -r git@github.com:jmoney8080/jmoney8080.github.com.git -u 'circleci <noreply@circle.com>'"
   },
   "repository": {
     "type": "git",

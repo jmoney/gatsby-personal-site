@@ -1,15 +1,5 @@
 version: 2
-commit:
-    jobs:
-        - deploy
-    nightly:
-    triggers:
-        - schedule:
-            cron: "0 8 * * *"
-            filters:
-            branches:
-                only:
-                - master
+
 jobs:
     deploy:
         docker:
@@ -27,10 +17,17 @@ jobs:
                 name: Publish github pages
                 command: npm run-script gh-pages
 workflows:
-  version: 2
-  build-n-release:
-    jobs:
-      - deploy:
-          filters:
-            branches:
-              only: master
+    version: 2
+    commit-workflow:
+        jobs:
+            - deploy:
+                filters:
+                    branches:
+                        only: master
+  scheduled-workflow:
+    triggers:
+        - schedule:
+            cron: "0 8 * * *"
+            filters:
+                branches:
+                    only: master

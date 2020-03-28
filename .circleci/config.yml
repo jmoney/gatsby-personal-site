@@ -1,25 +1,36 @@
 version: 2
+commit:
+    jobs:
+        - deploy
+    nightly:
+    triggers:
+        - schedule:
+            cron: "0 8 * * *"
+            filters:
+            branches:
+                only:
+                - master
 jobs:
-  build:
-    docker:
-      - image: circleci/node:10.19.0
-    working_directory: ~/jmoney8080.github.com
-    steps:
-      - checkout
-      - run: 
-          name: Download dependencies
-          command: npm install
-      - run: 
-          name: Gatsby Build
-          command: npm run-script build
-      - run: 
-          name: Publish github pages
-          command: npm run-script gh-pages
+    deploy:
+        docker:
+            - image: circleci/node:10.19.0
+        working_directory: ~/jmoney8080.github.com
+        steps:
+            - checkout
+            - run: 
+                name: Download dependencies
+                command: npm install
+            - run: 
+                name: Gatsby Build
+                command: npm run-script build
+            - run: 
+                name: Publish github pages
+                command: npm run-script gh-pages
 workflows:
   version: 2
   build-n-release:
     jobs:
-      - build:
+      - deploy:
           filters:
             branches:
               only: master

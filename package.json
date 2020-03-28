@@ -6,7 +6,6 @@
   "author": "Jonathan Monette <jon.monette@gmail.com>",
   "dependencies": {
     "@githubprimer/octicons-react": "^8.5.0",
-    "@octokit/graphql-schema": "^7.2.0",
     "gatsby": "^2.20.8",
     "gatsby-image": "^2.1.0",
     "gatsby-plugin-manifest": "^2.3.3",
@@ -28,7 +27,8 @@
     "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "gh-pages": "^2.2.0"
   },
   "keywords": [
     "gatsby"
@@ -39,7 +39,8 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "gh-pages": "gh-pages -d public -b master"
   },
   "repository": {
     "type": "git",

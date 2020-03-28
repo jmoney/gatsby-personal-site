@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.19.0
-
     working_directory: ~/jmoney8080.github.com
     steps:
       - checkout
@@ -26,4 +25,4 @@ workflows:
       - build:
           filters:
             branches:
-              only: develop
+              only: master

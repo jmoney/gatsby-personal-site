@@ -24,10 +24,10 @@ workflows:
                 filters:
                     branches:
                         only: master
-  scheduled-workflow:
-    triggers:
-        - schedule:
-            cron: "0 8 * * *"
-            filters:
-                branches:
-                    only: master
+    scheduled-workflow:
+        triggers:
+            - schedule:
+                cron: "0 8 * * *"
+                filters:
+                    branches:
+                        only: master

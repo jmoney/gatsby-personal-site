@@ -6,9 +6,6 @@ jobs:
     working_directory: ~/jmoney8080.github.com
     steps:
       - checkout
-      - run:
-          name: Install npm
-          command: npm install -g npm@6.13.4
       - run: 
           name: Download dependencies
           command: npm install

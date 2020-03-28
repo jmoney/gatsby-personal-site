@@ -25,6 +25,8 @@ workflows:
                     branches:
                         only: master
     scheduled-workflow:
+        jobs:
+            - deploy
         triggers:
             - schedule:
                 cron: "0 8 * * *"

@@ -16,7 +16,9 @@ const Layout = ({ children }) => (
         }
       }
     `}
+
     render={data => (
+
       <div
         style={{
           margin: `0 auto`,

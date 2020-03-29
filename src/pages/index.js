@@ -1,86 +1,64 @@
-import React from "react";
-import { graphql } from "gatsby";
-
-import Repository from "../components/repository";
+import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout";
 import Avatar from "../components/avatar";
 import SEO from "../components/seo";
 
-const IndexPage = ({ data }) => {
-  const {
-    name,
-    avatarUrl,
-    repositories
-  } = data.githubData.data.viewer;
-
+export default function Template({
+  data, // this prop will be injected by the GraphQL query below.
+}) {
+  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-      <SEO title={`${name} repos`} />
-      <div style={{ maxWidth: `960px`, marginBottom: `1.45rem` }}>
-        <div
-          style={{
-            display: `flex`,
-            alignItems: `center`,
-            margin: `1.45rem 0`
-          }}
-        >
-          <Avatar img={avatarUrl} />
-          <div style={{ padding: 16 }}>
-            <h2 style={{ border: `none` }}>{name}</h2>
-          </div>
+    <SEO title={`${data.githubData.data.viewer.name} Site`} />
+    <div style={{ maxWidth: `960px`, marginBottom: `1.45rem` }}>
+      <div
+        style={{
+          display: `flex`,
+          alignItems: `center`,
+          margin: `1.45rem 0`
+        }}
+      >
+        <Avatar img={data.githubData.data.viewer.avatarUrl} />
+        <div style={{ padding: 16 }}>
+          <h2 style={{ border: `none` }}>{data.githubData.data.viewer.name}</h2>
         </div>
-        {repositories.nodes
-          .map(repo => <Repository key={repo.name} repo={repo} />)
-          .reverse()}
       </div>
-    </Layout>
-  );
-};
+      <div
+        style={{
+                borderBottom: `1px solid #e1e4e8`,
+                marginBottom: `1rem`,
+                padding: `1rem`,
+                fontSize: 16,
+                }}
+            >
+        <h1>{frontmatter.title}</h1>
+        <div
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </div>
+    </div>
+  </Layout>
 
-export default IndexPage;
+  )
+}
 
-export const gitHubQuery = graphql`
-  {
+export const pageQuery = graphql`
+  query($path: String!) {
     githubData {
       data {
         viewer {
           name
           avatarUrl
-          isHireable
-          repositories {
-            nodes {
-              name
-              description
-              homepageUrl
-              resourcePath
-              forkCount
-              createdAt
-              updatedAt
-              repositoryTopics {
-                nodes {
-                    topic {
-                        name
-                    }
-                }
-              }
-              languages {
-                edges {
-                  node {
-                    name
-                    color
-                  }
-                }
-              }
-              licenseInfo {
-                name
-              }
-              stargazers {
-                totalCount
-              }
-            }
-          }
         }
       }
     }
-  }
-`;
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        path
+        title
+      }
+    }
+  }`

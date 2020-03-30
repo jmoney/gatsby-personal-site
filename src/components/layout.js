@@ -18,7 +18,11 @@ const Layout = ({ children }) => (
     `}
 
     render={data => (
-
+      <div>
+        <ul class="topnav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
+        </ul>
       <div
         style={{
           margin: `0 auto`,
@@ -41,6 +45,7 @@ const Layout = ({ children }) => (
             </a>
           </span>
         </footer>
+      </div>
       </div>
     )}
   />

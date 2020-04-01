@@ -1,7 +1,6 @@
 require("dotenv").config()
 
 const config = require("./config/site")
-// const { schema } = require("@octokit/graphql-schema");
 
 module.exports = {
   siteMetadata: {

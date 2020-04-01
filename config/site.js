@@ -22,7 +22,7 @@ module.exports = {
           }
         }
       }
-      repositories(last: $number_of_repos, privacy: PUBLIC, isFork: false orderBy: { field: NAME, direction:DESC } ) {
+      repositories(last: $number_of_repos, privacy: PUBLIC, isFork: false orderBy: { field: STARGAZERS, direction:ASC } ) {
         nodes {
           name
           description

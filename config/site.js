@@ -9,6 +9,7 @@ module.exports = {
       name
       avatarUrl
       resourcePath
+      url
       isHireable
       repository(name: $resume_repo) {
         releases(first: 1, orderBy: {field: CREATED_AT, direction: DESC}) {

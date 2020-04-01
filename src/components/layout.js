@@ -8,11 +8,23 @@ import "./layout.css";
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
+      query pageQuery {
+        githubData {
+            data {
+                viewer {
+                    repository {
+                        releases {
+                            nodes {
+                                releaseAssets {
+                                    nodes {
+                                        downloadUrl
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
       }
     `}
@@ -22,6 +34,7 @@ const Layout = ({ children }) => (
         <ul class="topnav">
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>
+            <li style={{float: `right`}}><a href={data.githubData.data.viewer.repository.releases.nodes[0].releaseAssets.nodes[0].downloadUrl} download="jonathanM_resume">Resume</a></li>
         </ul>
       <div
         style={{

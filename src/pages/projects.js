@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import Repository from "../components/repository";
 import Layout from "../components/layout";
 import Avatar from "../components/avatar";
-import SEO from "../components/seo";
 
 const IndexPage = ({ data }) => {
   const {
@@ -15,7 +14,6 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={`${name} Site`} />
       <div style={{ maxWidth: `960px`, marginBottom: `1.45rem` }}>
         <div
           style={{

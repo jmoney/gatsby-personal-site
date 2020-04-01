@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout";
 import Avatar from "../components/avatar";
-import SEO from "../components/seo";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -11,7 +10,6 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-    <SEO title={`${data.githubData.data.viewer.name} Site`} />
     <div style={{ maxWidth: `960px`, marginBottom: `1.45rem` }}>
       <div
         style={{

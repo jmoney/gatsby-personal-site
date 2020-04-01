@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SEO from "./seo";
 import { StaticQuery, graphql } from "gatsby";
 import Octicon, { MarkGithub } from "@githubprimer/octicons-react";
 
@@ -13,6 +14,7 @@ const Layout = ({ children }) => (
             data {
                 viewer {
                     url
+                    name
                     repository {
                         releases {
                             nodes {
@@ -32,6 +34,7 @@ const Layout = ({ children }) => (
 
     render={data => (
       <div>
+          <SEO title={`${data.githubData.data.viewer.name}'s Site`} />
         <ul class="topnav">
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>

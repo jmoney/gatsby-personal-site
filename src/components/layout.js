@@ -38,7 +38,7 @@ const Layout = ({ children }) => (
         <ul class="topnav">
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>
-            <li style={{float: `right`}}>
+            <li class="right">
                 <a href={data.githubData.data.viewer.repository.releases.nodes[0].releaseAssets.nodes[0].downloadUrl}>Resume</a>
             </li>
         </ul>

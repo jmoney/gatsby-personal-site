@@ -24,6 +24,7 @@
     "react-github-btn": "^1.0.5",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
+    "typescript": "^3.8.3",
     "typography": "^0.16.19",
     "typography-theme-github": "^0.16.19"
   },

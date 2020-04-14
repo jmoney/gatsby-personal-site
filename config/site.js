@@ -54,6 +54,30 @@ module.exports = {
           }
         }
       }
+      pullRequests(last: 100) {
+          nodes {
+            url
+            title
+            closed
+            merged
+            createdAt
+            closedAt
+            baseRepository {
+                name
+                openGraphImageUrl
+                nameWithOwner
+                url
+                languages(last: 1, orderBy: { field: SIZE, direction:ASC } ) {
+                    edges {
+                      node {
+                        name
+                        color
+                      }
+                    }
+                }
+            } 
+          }
+      }
     }
   }`,
   githubApiVariables: {

@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Jonathan Monette <jon.monette@gmail.com>",
   "dependencies": {
-    "@githubprimer/octicons-react": "^8.5.0",
+    "@primer/octicons-react": "^9.6.0",
     "gatsby": "^2.20.8",
     "gatsby-image": "^2.1.0",
     "gatsby-plugin-manifest": "^2.3.3",

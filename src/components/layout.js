@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import SEO from "./seo";
 import { StaticQuery, graphql } from "gatsby";
-import Octicon, { MarkGithub } from "@githubprimer/octicons-react";
+import Octicon, { MarkGithub } from "@primer/octicons-react";
 
 import "./layout.css";
 
@@ -35,10 +35,11 @@ const Layout = ({ children }) => (
     render={data => (
       <div>
           <SEO title={`${data.githubData.data.viewer.name}'s Site`} />
-        <ul class="topnav">
+        <ul className="topnav">
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>
-            <li class="right">
+            <li><a href="/pull_requests">Pull Requests</a></li>
+            <li className="right">
                 <a href={data.githubData.data.viewer.repository.releases.nodes[0].releaseAssets.nodes[0].downloadUrl}>Resume</a>
             </li>
         </ul>

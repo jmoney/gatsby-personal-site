@@ -3,10 +3,11 @@ version: 2
 jobs:
     deploy:
         docker:
-            - image: circleci/node:10.19.0
+            - image: circleci/node:12.16.1
         working_directory: ~/jmoney8080.github.com
         steps:
             - checkout
+
             - run: 
                 name: Download dependencies
                 command: npm install

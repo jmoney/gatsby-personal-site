@@ -4,7 +4,7 @@ module.exports = {
   author: `@jmoney8080`,
   siteUrl: `https://www.jmoney.dev`,
   githubApiToken: process.env.GITHUB_API_TOKEN,
-  githubApiQuery: `query ($number_of_repos: Int!, $number_of_topics: Int!, $resume_repo: String!) {
+  githubApiQuery: `query ($number_of_repos: Int!, $number_of_pullrequests: Int!, $number_of_topics: Int!, $resume_repo: String!) {
     viewer {
       name
       avatarUrl
@@ -54,7 +54,7 @@ module.exports = {
           }
         }
       }
-      pullRequests(last: 100) {
+      pullRequests(last: $number_of_pullrequests) {
           nodes {
             url
             title
@@ -82,6 +82,7 @@ module.exports = {
   }`,
   githubApiVariables: {
     number_of_repos: 100,
+    number_of_pullrequests: 100,
     number_of_topics: 15,
     resume_repo: "resume"
   },

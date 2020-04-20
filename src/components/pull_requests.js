@@ -87,7 +87,7 @@ const PullRequestFooter = ({ pull_request }) => {
                 {language.name}
             </FooterItem>
             <FooterItem>
-                <Octicon icon={Repo}/><a href={pull_request.baseRepository.url}>{pull_request.baseRepository.nameWithOwner}</a>
+                <Octicon icon={Repo}/>{" "}<a href={pull_request.baseRepository.url}>{pull_request.baseRepository.nameWithOwner}</a>
             </FooterItem>
             <FooterItem>Created: {createdAt}</FooterItem>
             {closedAt && <FooterItem>Closed: {closedAt}</FooterItem>}

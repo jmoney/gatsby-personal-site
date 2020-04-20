@@ -1,6 +1,8 @@
 import React from "react"
 import Octicon, { GitMerge, GitPullRequest, Repo } from "@primer/octicons-react"
 
+const orgBlacklist = ["jmoney8080", "boxen"]
+
 const PullRequestHeader = ({ pull_request }) => {
     let iconType = GitMerge
     let iconColor = "#6f42c1"
@@ -40,6 +42,7 @@ const FooterItem = ({ children }) => (
 )
 
 const PullRequestFooter = ({ pull_request }) => {
+
     let language = pull_request.baseRepository.languages.edges[0].node
     if (language.color === null) {
         language.color = "purple"
@@ -95,34 +98,31 @@ const PullRequestFooter = ({ pull_request }) => {
     )
 }
 
-// const PullRequestDescription = ({ pull_request }) => (
-//   <div style={{ width: `75%` }}>
-//     <p style={{ color: `#586069`, marginBottom: 0 }}>
-//       {repo.description}
-
-//       {repo.homepageUrl && (
-//         <>
-//           {" -"} <a href={repo.homepageUrl}>{repo.homepageUrl}</a>
-//         </>
-//       )}
-//     </p>
-//   </div>
-// )
-
 const PullRequest = ({ pull_request }) => {
+    const blacklistMatches = orgBlacklist.filter( blacklistItem => {
+             return pull_request.baseRepository.nameWithOwner.startsWith(blacklistItem)
+        } 
+    )
+
+    if (blacklistMatches.length >= 1) {
         return (
-            <div
-                style={{
-                borderBottom: `1px solid #e1e4e8`,
-                marginBottom: `1rem`,
-                padding: `1rem`,
-                fontSize: 16,
-                }}
-            >
-                <PullRequestHeader pull_request={pull_request} />
-                <PullRequestFooter pull_request={pull_request} />
-            </div>
+            <div/>
         )
+    }
+
+    return (
+        <div
+            style={{
+            borderBottom: `1px solid #e1e4e8`,
+            marginBottom: `1rem`,
+            padding: `1rem`,
+            fontSize: 16,
+            }}
+        >
+            <PullRequestHeader pull_request={pull_request} />
+            <PullRequestFooter pull_request={pull_request} />
+        </div>
+    )
 }
 
 export default PullRequest

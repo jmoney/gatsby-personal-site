@@ -20,6 +20,12 @@ module.exports = {
       },
     },
     {
+        resolve: `gatsby-source-medium`,
+        options: {
+          username: `@jmoney8080`,
+        },
+      },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

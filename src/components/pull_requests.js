@@ -43,7 +43,11 @@ const FooterItem = ({ children }) => (
 
 const PullRequestFooter = ({ pull_request }) => {
 
-    let language = pull_request.baseRepository.languages.edges[0].node
+    let language = {}
+    if (pull_request.baseRepository.languages.edges.length > 0) {
+        language = pull_request.baseRepository.languages.edges[0].node
+    }
+
     if (language.color === null) {
         language.color = "purple"
     }
@@ -75,7 +79,7 @@ const PullRequestFooter = ({ pull_request }) => {
 
     return (
         <div style={{ fontSize: 12 }}>
-            <FooterItem>
+            {language !== undefined && (<FooterItem>
                 <span
                     style={{
                         borderRadius: `50%`,
@@ -88,7 +92,7 @@ const PullRequestFooter = ({ pull_request }) => {
                     }}
                 />{" "}
                 {language.name}
-            </FooterItem>
+            </FooterItem>)}
             <FooterItem>
                 <Octicon icon={Repo}/>{" "}<a href={pull_request.baseRepository.url}>{pull_request.baseRepository.nameWithOwner}</a>
             </FooterItem>

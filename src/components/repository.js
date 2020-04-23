@@ -40,7 +40,10 @@ const FooterItem = ({ children }) => (
 )
 
 const RepositoryFooter = ({ repo }) => {
-  const language = repo.languages.edges[0].node
+  let language = {}
+  if (repo.languages.edges.length > 0) {
+      language = repo.languages.edges[0].node
+  }
   const timeAgo = new Date(repo.updatedA) - new Date()
   const daysAgo = Math.floor(timeAgo / (1000 * 60 * 60 * 24)) // ms to days
   let updatedAt = repo.updatedAt.slice(0, 10)
@@ -53,7 +56,7 @@ const RepositoryFooter = ({ repo }) => {
   }
   return (
     <div style={{ color: `#586069`, fontSize: 12 }}>
-      <FooterItem>
+      {language.name !== undefined && (<FooterItem>
         <span
           style={{
             borderRadius: `50%`,
@@ -66,7 +69,8 @@ const RepositoryFooter = ({ repo }) => {
           }}
         />{" "}
         {language.name}
-      </FooterItem>
+      
+      </FooterItem>)}
       <FooterItem>
         <Octicon icon={Star} />
         {repo.stargazers.totalCount}{" "}

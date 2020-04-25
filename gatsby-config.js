@@ -20,9 +20,9 @@ module.exports = {
       },
     },
     {
-        resolve: `gatsby-source-medium`,
+        resolve: `gatsby-source-dev`,
         options: {
-          username: `@jmoney8080`,
+          username: `jmoney8080`,
         },
       },
     {

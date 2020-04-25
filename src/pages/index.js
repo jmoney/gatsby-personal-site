@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout";
 import Avatar from "../components/avatar";
-import MediumHeader from "../components/medium";
+import DevTo from "../components/devto";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -38,8 +38,8 @@ export default function Template({
                 />
             </div>
             <h2>Blogs</h2>
-            {data.allMediumPost.edges
-                .map(medium => <MediumHeader medium={medium}/>)
+            {data.allDevArticles.edges
+                .map(devto => <DevTo devto={devto}/>)
                 .reverse()
             }
         </div>
@@ -65,21 +65,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+    allDevArticles {
         edges {
             node {
-                title
-                uniqueSlug
-                author {
-                    username
-                }
-                virtuals {
-                    previewImage {
-                        imageId
-                    }
-                    subtitle
+                article {
+                    id
+                    title
+                    description
+                    url
                 }
             }
-        }  
+        }
     }
   }`

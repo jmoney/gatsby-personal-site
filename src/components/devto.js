@@ -1,6 +1,6 @@
 import React from "react"
 
-const MediumHeader = ({ medium }) => {
+const DevToHeader = ({ devto }) => {
   return (
     <div
       style={{ display: `flex`, justifyContent: `space-between`, fontSize: 14 }}
@@ -14,26 +14,26 @@ const MediumHeader = ({ medium }) => {
         }}
       >
             <a
-                href={`https://www.medium.com/${medium.node.author.username}/${medium.node.uniqueSlug}`}
+                href={`${devto.node.article.url}`}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                {medium.node.title}
+                {devto.node.article.title}
             </a>
         </h3>
     </div>
   )
 }
 
-const MediumDescription = ({ medium }) => (
+const DevToDescription = ({ devto }) => (
     <div style={{ width: `75%` }}>
       <p style={{ color: `#586069`, marginBottom: 0 }}>
-        {medium.node.virtuals.subtitle}
+        {devto.node.article.description}
       </p>
     </div>
   )
 
-const Medium = ({ medium }) => {
+const DevTo = ({ devto }) => {
     return (
         <div
             style={{
@@ -43,10 +43,10 @@ const Medium = ({ medium }) => {
             fontSize: 16,
             }}
         >
-            <MediumHeader medium={medium} />
-            <MediumDescription medium={medium} />
+            <DevToHeader devto={devto} />
+            <DevToDescription devto={devto} />
         </div>
     )
 }
 
-export default Medium
+export default DevTo

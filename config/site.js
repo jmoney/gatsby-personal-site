@@ -1,3 +1,4 @@
+// FIXME: Need to set a new token and need to remember how that is found.  I think it is a .env file at the root.
 module.exports = {
   title: `Personal Static Website`,
   description: `Personal Static Website`,
@@ -66,6 +67,8 @@ module.exports = {
                 name
                 openGraphImageUrl
                 nameWithOwner
+                isFork
+                isPrivate
                 url
                 languages(last: 1, orderBy: { field: SIZE, direction:ASC } ) {
                     edges {

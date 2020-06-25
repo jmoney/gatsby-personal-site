@@ -57,6 +57,8 @@ export const gitHubQuery = graphql`
                     name
                     openGraphImageUrl
                     nameWithOwner
+                    isFork
+                    isPrivate
                     url
                     languages {
                         edges {

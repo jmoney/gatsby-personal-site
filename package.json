@@ -1,5 +1,5 @@
 {
-  "name": "jmoney8080.github.com",
+  "name": "jmoney.github.com",
   "private": true,
   "description": "Personal github page",
   "version": "0.1.0",
@@ -43,10 +43,10 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "gh-pages": "cp CNAME public/ && gh-pages -d public -b master -r git@github.com:jmoney8080/jmoney8080.github.com.git -u 'circleci <noreply@circle.com>'"
+    "gh-pages": "cp CNAME public/ && gh-pages -d public -b master -r git@github.com:jmoney/jmoney.github.com.git -u 'circleci <noreply@circle.com>'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jmoney8080/jmoney8080.github.com"
+    "url": "https://github.com/jmoney/jmoney.github.com"
   }
 }

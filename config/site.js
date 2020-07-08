@@ -2,7 +2,7 @@
 module.exports = {
   title: `Personal Static Website`,
   description: `Personal Static Website`,
-  author: `@jmoney8080`,
+  author: `@jmoney`,
   siteUrl: `https://www.jmoney.dev`,
   githubApiToken: process.env.GITHUB_API_TOKEN,
   githubApiQuery: `query ($number_of_repos: Int!, $number_of_pullrequests: Int!, $number_of_topics: Int!, $resume_repo: String!) {

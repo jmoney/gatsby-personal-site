@@ -6,7 +6,7 @@
   "author": "Jonathan Monette <jon.monette@gmail.com>",
   "dependencies": {
     "@primer/octicons-react": "^9.6.0",
-    "gatsby": "^2.20.8",
+    "gatsby": "^2.20.29",
     "gatsby-image": "^2.1.0",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^2.1.1",

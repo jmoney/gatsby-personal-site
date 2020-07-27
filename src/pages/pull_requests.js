@@ -28,6 +28,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
         {pullRequests.nodes
+          .filter(pullrequest => pullrequest != null)
           .map(pullrequest => <PullRequest key={pullrequest.title} pull_request={pullrequest} />)
           .reverse()}
       </div>

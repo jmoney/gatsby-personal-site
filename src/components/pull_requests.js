@@ -1,7 +1,7 @@
 import React from "react"
 import Octicon, { GitMerge, GitPullRequest, Repo } from "@primer/octicons-react"
 
-const orgBlockList = ["jmoney8080", "boxen"]
+const orgBlockList = ["jmoney8080", "jmoney", "boxen"]
 
 const PullRequestHeader = ({ pull_request }) => {
     let iconType = GitMerge
@@ -104,12 +104,13 @@ const PullRequestFooter = ({ pull_request }) => {
 
 const PullRequest = ({ pull_request }) => {
 
-    const filteredByBlockList = orgBlockList.filter( blockListItem => {
-             return pull_request.baseRepository.nameWithOwner.startsWith(blacklistItem)
+    const filteredByBlockList = orgBlockList.filter(blockListItem => {
+             return pull_request.baseRepository.nameWithOwner.startsWith(blockListItem)
         } 
     )
 
-    if ((pull_request.baseRepository.isPrivate || pull_request.baseRepository.isFork) && filteredByBlockList.length >= 1) {
+    console.log(pull_request.baseRepository.nameWithOwner + " " + filteredByBlockList + " " + (filteredByBlockList.length >= 1))
+    if ((pull_request.baseRepository.isPrivate || pull_request.baseRepository.isFork) || filteredByBlockList.length >= 1) {
         return (
             <div/>
         )

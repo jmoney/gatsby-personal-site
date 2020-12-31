@@ -38,7 +38,6 @@ const Layout = ({ children }) => (
         <ul className="topnav">
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>
-            <li><a href="/pull_requests">Pull Requests</a></li>
             <li><a href="/awards_certs">Awards & Certifications</a></li>
             <li className="right">
                 <a href={data.githubData.data.viewer.repository.releases.nodes[0].releaseAssets.nodes[0].downloadUrl}>Resume</a>

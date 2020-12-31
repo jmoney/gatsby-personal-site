@@ -54,37 +54,10 @@ module.exports = {
           }
         }
       }
-      pullRequests(last: $number_of_pullrequests) {
-          nodes {
-            url
-            title
-            closed
-            merged
-            createdAt
-            closedAt
-            baseRepository {
-                name
-                openGraphImageUrl
-                nameWithOwner
-                isFork
-                isPrivate
-                url
-                languages(last: 1, orderBy: { field: SIZE, direction:ASC } ) {
-                    edges {
-                      node {
-                        name
-                        color
-                      }
-                    }
-                }
-            } 
-          }
-      }
     }
   }`,
   githubApiVariables: {
     number_of_repos: 100,
-    number_of_pullrequests: 100,
     number_of_topics: 15,
     resume_repo: "resume"
   },

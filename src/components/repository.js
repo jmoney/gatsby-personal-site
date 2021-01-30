@@ -58,7 +58,7 @@ const RepositoryFooter = ({ repo }) => {
     <div style={{ color: `#586069`, fontSize: 12 }}>
       <FooterItem>
         <Octicon icon={Octoface}/>{" "}
-        <a href={`https://www.github.com${repo.resourcePath}`}>GitHub</a>
+        <a target="_blank" href={`https://www.github.com${repo.resourcePath}`}>GitHub</a>
       </FooterItem>
       
       {language.name !== undefined && (<FooterItem>

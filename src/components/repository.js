@@ -1,5 +1,5 @@
 import React from "react"
-import Octicon, { Law, Star } from "@primer/octicons-react"
+import Octicon, { Law, Octoface, Star } from "@primer/octicons-react"
 import GitHubButton from "react-github-btn"
 
 const RepositoryHeader = ({ repo }) => {
@@ -16,7 +16,7 @@ const RepositoryHeader = ({ repo }) => {
         }}
       >
         <a
-          href={`https://github.com${repo.resourcePath}`}
+          href={`${repo.homepageUrl}`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -56,6 +56,11 @@ const RepositoryFooter = ({ repo }) => {
   }
   return (
     <div style={{ color: `#586069`, fontSize: 12 }}>
+      <FooterItem>
+        <Octicon icon={Octoface}/>{" "}
+        <a href={`https://www.github.com${repo.resourcePath}`}>GitHub</a>
+      </FooterItem>
+      
       {language.name !== undefined && (<FooterItem>
         <span
           style={{
@@ -90,12 +95,6 @@ const RepositoryDescription = ({ repo }) => (
   <div style={{ width: `75%` }}>
     <p style={{ color: `#586069`, marginBottom: 0 }}>
       {repo.description}
-
-      {repo.homepageUrl && (
-        <>
-          {" -"} <a href={repo.homepageUrl}>{repo.homepageUrl}</a>
-        </>
-      )}
     </p>
   </div>
 )

@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
 export default IndexPage;
 
 export const gitHubQuery = graphql`
-  {
+  query {
     githubData {
       data {
         viewer {

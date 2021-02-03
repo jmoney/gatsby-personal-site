@@ -37,6 +37,7 @@ const Layout = ({ children }) => (
           <SEO title={`${data.githubData.data.viewer.name}'s Site`} />
         <ul className="topnav">
             <li><a href="/">Home</a></li>
+            <li><a href="/til">TIL</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="/awards_certs">Awards & Certifications</a></li>
             <li className="right">
